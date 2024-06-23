@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+      
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="primary"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title color="primary">list-reorder</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="activateOrder()">
+        <ion-icon slot="icon-only" name="shuffle-outline" [color]="colorIcon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-reorder-group [disabled]="isDisable" (ionItemReorder)="handleReorder($any($event))">
+
+      <ion-item *ngFor="let per of personajes">
+        <ion-label>{{ per }}</ion-label>
+        <ion-reorder slot="start">
+          <ion-icon name="shuffle-outline"></ion-icon>
+        </ion-reorder>
+      </ion-item>
+      
+    </ion-reorder-group>
+  </ion-list>
+  
+</ion-content>
